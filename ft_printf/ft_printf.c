@@ -6,13 +6,13 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 17:46:20 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/06 11:56:28 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/06 17:10:24 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_printf(const char *string, ...)
+int				ft_printf(const char *string, ...)
 {
 	ssize_t		chr_place;
 	ssize_t		return_value;
@@ -20,25 +20,24 @@ int		ft_printf(const char *string, ...)
 	int			len;
 	va_list		ap;
 	t_poption	flag;
-	//char		*string;
 
 	va_start(ap, string);
 	string = (char *)string;
 	i = 0;
 	len = (int)ft_strlen(string);
-	while (i < len)
-	{
+	return_value = 0;
+	 while (i < len)
+	 {
 		flag = printf_struct_reset(flag);
 		chr_place = gnl_strchr(string + i, '%');
 		write(1, string + i, chr_place);
 		i += chr_place;
 		if (string[i] == '%')
-			i = mod_management(string, &flag, ap, i);
-		if (flag.ret == -1)
+			i = mod_management((char *)string, &flag, ap, i);
+		if (i++ == -1)
 			return(-1);
 		return_value += chr_place + flag.ret;
-		i++;
-	}
+	 }
 	return (return_value);
 }
 
@@ -48,8 +47,7 @@ int		mod_management(char *string, t_poption *flag, va_list ap, int i)
 
 	i = fl_check(string, flag, ap, i);
 	i = fl_check_num(string, flag, ap, i);
-	i = error_handling(flag);
-	if (i == -1)
+	if (error_handling(flag) == -1)
 		return (-1);
 	return_value = mod_check(string, flag, ap, i);
 	if (return_value == -1)
@@ -112,7 +110,6 @@ int fl_check_num(char *string, t_poption *flag, va_list ap, int i)
 ssize_t		mod_check(char *string, t_poption *flag, va_list ap, int i)
 {
 	ssize_t return_value;
-
 	if (string[i] == 'd' || string[i] == 'i')
 		return_value = int_pr(ap, flag);
 	else if (string[i] == 's')

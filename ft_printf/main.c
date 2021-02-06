@@ -7,19 +7,25 @@ int		main(void)
 		unsigned int c = 4294967295;
 
 
+
+
+
+
+
+
+
 puts("=======================%i or d=======================");
-    printf("%7.3i\n", b);
-	ft_printf("%7.3i\n", b);
+    printf("ret: %d\n", printf("%7.3i", b));
+	printf("ret: %d\n", ft_printf("%7.3i", b));
+    puts("");
+
+    printf("ret: %d\n", printf("%-7.3i", b));
+    printf("ret: %d\n", ft_printf("%-7.3i", b));
 
     puts("");
 
-    printf("%-7.3i\n", b);
-    ft_printf("%-7.3i\n", b);
-
-    puts("");
-
-    printf("%20.30i\n", b);
-    ft_printf("%20.30i\n", b);
+    printf("ret: %d\n", printf("%20.30i", b));
+    printf("ret: %d\n", ft_printf("%20.30i", b));
 
     puts("");
 
@@ -364,6 +370,9 @@ puts("");
 
     printf("[%20%]\n");
     ft_printf("[%20%]\n");
+
+
+
 
 
 }

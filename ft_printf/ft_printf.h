@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 11:17:50 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/06 11:54:06 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/06 15:44:12 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ t_poption	printf_struct_reset(t_poption flag);
 int 		fl_check_num(char *string, t_poption *flag, va_list ap, int i);
 int			fl_check(char *string, t_poption *flag, va_list ap, int i);
 int			mod_management(char *string, t_poption *flag, va_list ap, int i);
+ssize_t		mod_check(char *string, t_poption *flag, va_list ap, int i);
 
 int			write_string(char c, int len);
 int			int_excute(char *tmp_s, t_poption *flag, int len, int minus);
