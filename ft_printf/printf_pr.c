@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 19:37:00 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/05 19:53:32 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/06 11:28:58 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ ssize_t		int_pr(va_list ap, t_poption *flag)
 {
 	char *tmp_s;
 	size_t len;
+	ssize_t return_value;
 	long		arg;
 	int		minus;
 
@@ -27,9 +28,9 @@ ssize_t		int_pr(va_list ap, t_poption *flag)
 	if (!tmp_s)
 		return (-1);
 	len = (int)ft_strlen(tmp_s);
-	flag->ret += int_excute(tmp_s, flag, len, minus);
+	return_value = int_excute(tmp_s, flag, len, minus);
 	free(tmp_s);
-	return (0);
+	return (return_value);
 }
 
 ssize_t		string_pr(va_list ap, t_poption *flag)
@@ -38,36 +39,44 @@ ssize_t		string_pr(va_list ap, t_poption *flag)
 	int		return_value;
 
 	tmp_s = ft_strdup(va_arg(ap, char*));
+	if (!tmp_s)
+		return (-1);
 	return_value = string_excute(tmp_s, flag);
 	free(tmp_s);
-	return (0);
+	return (return_value);
 }
 
 ssize_t		char_pr(va_list ap, t_poption *flag)
 {
 	char tmp_s[2];
+	ssize_t return_value;
 
 
 	tmp_s[0] = (char)va_arg(ap, int);
 	tmp_s[1] = '\0';
+	return_value = 0;
 	if (!flag->hyphen)
-		write_string(' ', flag->asterisk - 1);
+		return_value += write_string(' ', flag->asterisk - 1);
 	write(1, tmp_s, 1);
 	if (flag->hyphen)
-		write_string(' ', flag->asterisk - 1);
-	return (0);
+		return_value += write_string(' ', flag->asterisk - 1);
+	return_value += 1;
+	return (return_value);
 }
 
 ssize_t	percent_pr(t_poption *flag)
 {
 	char tmp_s[2];
+	ssize_t return_value;
 
 	tmp_s[0] = '%';
 	tmp_s[1] = '\0';
+	return_value = 0;
 	if (!flag->hyphen)
-		write_string(' ', flag->asterisk - 1);
+		return_value += write_string(' ', flag->asterisk - 1);
 	write(1, tmp_s, 1);
 	if (flag->hyphen)
-		write_string(' ', flag->asterisk - 1);
-	return (0);
+		return_value += write_string(' ', flag->asterisk - 1);
+		return_value += 1;
+	return (return_value);
 }
