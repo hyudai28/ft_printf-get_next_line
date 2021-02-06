@@ -6,15 +6,14 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 17:46:20 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/06 17:10:24 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/06 17:32:03 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int				ft_printf(const char *string, ...)
+int		ft_printf(const char *string, ...)
 {
-	ssize_t		chr_place;
 	ssize_t		return_value;
 	int			i;
 	int			len;
@@ -26,24 +25,25 @@ int				ft_printf(const char *string, ...)
 	i = 0;
 	len = (int)ft_strlen(string);
 	return_value = 0;
-	 while (i < len)
-	 {
+	while (i < len)
+	{
 		flag = printf_struct_reset(flag);
-		chr_place = gnl_strchr(string + i, '%');
-		write(1, string + i, chr_place);
-		i += chr_place;
+		flag.chr = gnl_strchr(string + i, '%');
+		write(1, string + i, flag.chr);
+		i += flag.chr;
 		if (string[i] == '%')
 			i = mod_management((char *)string, &flag, ap, i);
-		if (i++ == -1)
-			return(-1);
-		return_value += chr_place + flag.ret;
-	 }
+		if (i == -1)
+			return (-1);
+		i++;
+		return_value += flag.chr + flag.ret;
+	}
 	return (return_value);
 }
 
 int		mod_management(char *string, t_poption *flag, va_list ap, int i)
 {
-	ssize_t		return_value;
+	ssize_t	return_value;
 
 	i = fl_check(string, flag, ap, i);
 	i = fl_check_num(string, flag, ap, i);
@@ -55,7 +55,6 @@ int		mod_management(char *string, t_poption *flag, va_list ap, int i)
 	flag->ret += return_value;
 	return (i);
 }
-
 
 int		fl_check(char *string, t_poption *flag, va_list ap, int i)
 {
@@ -86,7 +85,7 @@ int		fl_check(char *string, t_poption *flag, va_list ap, int i)
 	return (i);
 }
 
-int fl_check_num(char *string, t_poption *flag, va_list ap, int i)
+int		fl_check_num(char *string, t_poption *flag, va_list ap, int i)
 {
 	if (string[i] == '.')
 	{
@@ -106,10 +105,10 @@ int fl_check_num(char *string, t_poption *flag, va_list ap, int i)
 	return (i);
 }
 
-
-ssize_t		mod_check(char *string, t_poption *flag, va_list ap, int i)
+ssize_t	mod_check(char *string, t_poption *flag, va_list ap, int i)
 {
 	ssize_t return_value;
+
 	if (string[i] == 'd' || string[i] == 'i')
 		return_value = int_pr(ap, flag);
 	else if (string[i] == 's')

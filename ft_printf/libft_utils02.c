@@ -6,13 +6,13 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 19:46:37 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/05 19:47:45 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/06 18:04:59 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	*ft_calloc(size_t count, size_t size)
+void		*ft_calloc(size_t count, size_t size)
 {
 	void	*str;
 
@@ -23,7 +23,7 @@ void	*ft_calloc(size_t count, size_t size)
 	return ((void *)str);
 }
 
-static int		ft_itoa_count(long int n, int i)
+int			ft_itoa_count(long int n, int i)
 {
 	while (n >= 10)
 	{
@@ -33,7 +33,7 @@ static int		ft_itoa_count(long int n, int i)
 	return (i);
 }
 
-static char		*ft_itoa_saiki(long int n, char *dest, int i, int x)
+char		*ft_itoa_saiki(long int n, char *dest, int i, int x)
 {
 	if (n >= 10)
 	{
@@ -45,7 +45,7 @@ static char		*ft_itoa_saiki(long int n, char *dest, int i, int x)
 	return (dest);
 }
 
-char			*ft_itoa(long k)
+char		*ft_itoa(long k)
 {
 	int			i;
 	int			flag;
@@ -71,8 +71,7 @@ char			*ft_itoa(long k)
 	return (dest);
 }
 
-
-char	*ft_strdup(const char *s1)
+char		*ft_strdup(const char *s1)
 {
 	int		i;
 	char	*dest;

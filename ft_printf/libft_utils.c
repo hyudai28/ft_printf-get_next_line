@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 19:49:28 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/05 19:47:56 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/06 17:34:28 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ size_t		ft_strlen(const char *s)
 	return (i);
 }
 
-void	ft_bzero(void *s, size_t n)
+void		ft_bzero(void *s, size_t n)
 {
 	ft_memset(s, '\0', n);
 }
 
-void	*ft_memset(void *buf, int ch, size_t n)
+void		*ft_memset(void *buf, int ch, size_t n)
 {
 	size_t	count;
 	char	*p;
@@ -54,8 +54,7 @@ size_t		gnl_strchr(const char *s, int c)
 	return (i);
 }
 
-int		ft_isdigit(int c)
+int			ft_isdigit(int c)
 {
 	return ('0' <= c && c <= '9');
 }
-

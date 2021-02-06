@@ -6,13 +6,13 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 19:43:39 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/06 10:57:47 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/06 18:31:53 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	write_string(char c, int len)
+int		write_string(char c, int len)
 {
 	int		i;
 
@@ -25,7 +25,7 @@ int	write_string(char c, int len)
 	return (i);
 }
 
-int	int_excute(char *tmp_s, t_poption *flag, int len, int minus)
+int		int_excute(char *tmp_s, t_poption *flag, int len, int minus)
 {
 	int		ast;
 	int		per;
@@ -35,8 +35,8 @@ int	int_excute(char *tmp_s, t_poption *flag, int len, int minus)
 	per = flag->period;
 	r_value = 0;
 	if (ast >= len && ast > per && (per && !flag->zero) &&
-	 !(flag->hyphen))
-	 	r_value += write_string(' ', (per > len) ? ast - per: ast - len);
+			!(flag->hyphen))
+		r_value += write_string(' ', (per > len) ? ast - per : ast - len);
 	if (minus)
 		write(1, "-", 1);
 	if ((flag->zero && !per) && (ast >= len))
@@ -45,15 +45,13 @@ int	int_excute(char *tmp_s, t_poption *flag, int len, int minus)
 		r_value += write_string('0', per - len);
 	write(1, tmp_s, len);
 	if (ast >= len && ast > per && (per && !flag->zero) &&
-	 (flag->hyphen))
-	 	r_value += write_string(' ', (per > len) ? ast - per: ast - len);
-		 r_value += len + minus;
-	// r_value = ast >= per ? ast : per;
-	// r_value = r_value >= len ? r_value : len;
+			(flag->hyphen))
+		r_value += write_string(' ', (per > len) ? ast - per : ast - len);
+	r_value += len + minus;
 	return (r_value);
 }
 
-int	pointer_excute(char *tmp_s, t_poption *flag, int len)
+int		pointer_excute(char *tmp_s, t_poption *flag, int len)
 {
 	int		ast;
 	int		per;
@@ -63,8 +61,8 @@ int	pointer_excute(char *tmp_s, t_poption *flag, int len)
 	per = flag->period;
 	r_value = 0;
 	if (ast >= len && ast > per && (per && !flag->zero) &&
-	 !(flag->hyphen))
-	 	r_value += write_string(' ', (per > len) ? ast - per: ast - len);
+			!(flag->hyphen))
+		r_value += write_string(' ', (per > len) ? ast - per : ast - len);
 	if ((flag->zero && !per) && (ast >= len))
 		r_value += write_string('0', ast - len);
 	if ((per >= len))
@@ -72,13 +70,13 @@ int	pointer_excute(char *tmp_s, t_poption *flag, int len)
 	write(1, "0x7ffe", 6);
 	write(1, tmp_s, len);
 	if (ast >= len && ast > per && (per && !flag->zero) &&
-	 (flag->hyphen))
-	 	r_value = write_string(' ', (per > len) ? ast - per: ast - len);
+			(flag->hyphen))
+		r_value = write_string(' ', (per > len) ? ast - per : ast - len);
 	r_value += 6 + len;
 	return (r_value);
 }
 
-int		string_excute(char	*s, t_poption *flag)
+int		string_excute(char *s, t_poption *flag)
 {
 	int		i;
 	int		len;
