@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 17:46:20 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/06 17:32:03 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/07 16:08:57 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ int		fl_check_num(char *string, t_poption *flag, va_list ap, int i)
 {
 	if (string[i] == '.')
 	{
+		flag->number = 1;
 		if (ft_isdigit(string[++i]))
 			while (ft_isdigit(string[i]))
 			{

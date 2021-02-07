@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 11:17:50 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/06 18:00:06 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/07 15:34:13 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int				write_string(char c, int len);
 int				int_excute(char *tmp_s, t_poption *flag, int len, int minus);
 int				string_excute(char *tmp_s, t_poption *flag);
 int				pointer_excute(char *tmp_s, t_poption *flag, int len);
+int				onec_excute(char *tmp_s, t_poption *flag, int minus);
+int				string_null_excute(char *s, t_poption *flag);
 char			*hex_pointer(int num, int l, char *answer);
 char			*hex_large(unsigned int num, int l, char *answer);
 char			*hex_small(unsigned int num, int l, char *answer);

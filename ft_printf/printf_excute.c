@@ -6,23 +6,34 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 19:43:39 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/06 18:31:53 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/07 21:13:22 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		write_string(char c, int len)
+int		onec_excute(char *tmp_s, t_poption *flag, int minus)
 {
-	int		i;
+	int		ast;
+	int		per;
+	int		r_value;
 
-	i = 0;
-	while (i < len)
-	{
-		write(1, &c, 1);
-		i++;
-	}
-	return (i);
+	ast = flag->asterisk;
+	per = flag->period;
+	r_value = 0;
+	if (ast > 1 && ast > per && (!flag->zero) &&
+			!(flag->hyphen))
+		r_value += write_string(' ', ast - 1);
+	if ((flag->zero && !per) && (ast >= 1))
+		r_value += write_string('0', ast - 1);
+	if ((per >= 1))
+		r_value += write_string('0', per - 1);
+	write(1, tmp_s, 1);
+	if (ast > 1 && ast > per && (!flag->zero) &&
+			(flag->hyphen))
+		r_value += write_string(' ', ast - 1);
+	r_value += 1 + minus;
+	return (r_value);
 }
 
 int		int_excute(char *tmp_s, t_poption *flag, int len, int minus)
@@ -34,8 +45,10 @@ int		int_excute(char *tmp_s, t_poption *flag, int len, int minus)
 	ast = flag->asterisk - minus;
 	per = flag->period;
 	r_value = 0;
-	if (ast >= len && ast > per && (per && !flag->zero) &&
+	if (ast >= len && ast > per && !flag->zero &&
 			!(flag->hyphen))
+		r_value += write_string(' ', (per > len) ? ast - per : ast - len);
+	else if (flag->zero && flag->number)
 		r_value += write_string(' ', (per > len) ? ast - per : ast - len);
 	if (minus)
 		write(1, "-", 1);
@@ -44,7 +57,7 @@ int		int_excute(char *tmp_s, t_poption *flag, int len, int minus)
 	if ((per >= len))
 		r_value += write_string('0', per - len);
 	write(1, tmp_s, len);
-	if (ast >= len && ast > per && (per && !flag->zero) &&
+	if (ast >= len && ast > per && (!flag->zero) &&
 			(flag->hyphen))
 		r_value += write_string(' ', (per > len) ? ast - per : ast - len);
 	r_value += len + minus;
@@ -78,21 +91,28 @@ int		pointer_excute(char *tmp_s, t_poption *flag, int len)
 
 int		string_excute(char *s, t_poption *flag)
 {
-	int		i;
 	int		len;
 	int		return_value;
 
-	i = 0;
 	return_value = 0;
 	len = ft_strlen(s);
-	if (flag->period != 0)
+	if (flag->number)
+	{
 		len = len < flag->period ? len : flag->period;
 	if (!flag->hyphen)
 		return_value += write_string(' ', flag->asterisk - len);
-	write(1, &s[0], len);
-	i = 0;
+		write(1, &s[0], len);
 	if (flag->hyphen)
 		return_value += write_string(' ', flag->asterisk - len);
+	}
+	else
+	{
+		if (!flag->hyphen && flag->asterisk > len)
+			return_value += write_string(' ', flag->asterisk - len);
+		write(1, &s[0], len);
+		if (flag->hyphen)
+			return_value += write_string(' ', flag->asterisk - len);
+	}
 	return_value += len;
 	return (return_value);
 }

@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 19:37:00 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/06 17:55:25 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/07 16:04:49 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,22 @@ ssize_t		int_pr(va_list ap, t_poption *flag)
 ssize_t		string_pr(va_list ap, t_poption *flag)
 {
 	char	*tmp_s;
+	char	*dup;
 	int		return_value;
 
-	tmp_s = ft_strdup(va_arg(ap, char*));
-	if (!tmp_s)
-		return (-1);
-	return_value = string_excute(tmp_s, flag);
-	free(tmp_s);
+	dup = va_arg(ap, char*);
+	if (!dup)
+	{
+		return_value = string_excute("(null)", flag);
+	}
+	else
+	{
+		tmp_s = ft_strdup(dup);
+		if (!tmp_s)
+			return (-1);
+		return_value = string_excute(tmp_s, flag);
+		free(tmp_s);
+	}
 	return (return_value);
 }
 
@@ -70,12 +79,14 @@ ssize_t		percent_pr(t_poption *flag)
 
 	tmp_s[0] = '%';
 	tmp_s[1] = '\0';
-	return_value = 0;
+	return_value = onec_excute(tmp_s, flag, flag->hyphen);
+	/*
 	if (!flag->hyphen)
 		return_value += write_string(' ', flag->asterisk - 1);
 	write(1, tmp_s, 1);
 	if (flag->hyphen)
 		return_value += write_string(' ', flag->asterisk - 1);
 	return_value += 1;
+	*/
 	return (return_value);
 }

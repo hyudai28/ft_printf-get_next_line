@@ -13,7 +13,6 @@ int		main(void)
 
 
 
-
 puts("=======================%i or d=======================");
     printf("ret: %d\n", printf("%7.3i", b));
 	printf("ret: %d\n", ft_printf("%7.3i", b));
@@ -34,8 +33,8 @@ puts("=======================%i or d=======================");
 
     puts("");
 
-    printf("%20.3i\n", b);
-    ft_printf("%20.3i\n", b);
+    printf("%08.5i\n", -216);
+    ft_printf("%08.5i\n", -216);
 
     puts("");
 
@@ -52,10 +51,20 @@ puts("=======================%i or d=======================");
 
     puts("");
 
+    printf("%20i\n", b);
+    ft_printf("%20i\n", b);
+
+	puts("");
+
+
+    puts("");
+
     printf("%020i\n", b);
     ft_printf("%020i\n", b);
 
 	puts("");
+
+
 puts("=======================%unsigned int=======================");
 	printf("%7.3u\n", c);
 	ft_printf("%7.3u\n", c);
@@ -153,8 +162,47 @@ puts("");
 
 puts("");
 
-    printf("[%20s]\n", a);
-    ft_printf("[%20s]\n", a);
+    printf("[%10.s]\n", a);
+    ft_printf("[%10.s]\n", a);
+puts("");
+
+    printf("[%.0s]\n", "hello");
+    ft_printf("[%.0s]\n", "hello");
+
+puts("");
+
+    printf("[hello%s]\n", NULL);
+    ft_printf("[hello%s]\n", NULL);
+
+   puts("");
+
+    printf("[%s]\n", NULL);
+    ft_printf("[%s]\n", NULL);
+
+   puts("");
+
+    printf("[%32s]\n", NULL);
+    ft_printf("[%32s]\n", NULL);
+
+   puts("");
+
+    printf("[%-2s]\n", NULL);
+    ft_printf("[%-2s]\n", NULL);
+
+   puts("");
+
+    printf("[%-2s]\n", NULL);
+    ft_printf("[%-2s]\n", NULL);
+
+      puts("");
+
+    printf("[%.s]\n", "NULL");
+    ft_printf("[%.s]\n", "NULL");
+
+      puts("");
+
+    printf("[%.0s]\n", NULL);
+    ft_printf("[%.0s]\n", NULL);
 
 
 puts("=======================%char=======================");
@@ -363,16 +411,15 @@ puts("=======================%%=======================");
 
 puts("");
 
-    printf("[%-20%]\n");
-    ft_printf("[%-20%]\n");
+    printf("[%-5%]\n");
+    ft_printf("[%-5%]\n");
 
 puts("");
 
-    printf("[%20%]\n");
-    ft_printf("[%20%]\n");
+    printf("[%-2%]\n");
+    ft_printf("[%-2%]\n");
 
-
-
-
+    printf("[%05%]\n");
+    printf("[%05%]\n");
 
 }

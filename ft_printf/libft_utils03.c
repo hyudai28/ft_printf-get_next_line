@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 11:42:16 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/06 17:36:16 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/07 15:34:15 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,17 @@ int			error_handling(t_poption *flag)
 	if (flag->number < 0)
 		flag->number = 0;
 	return (0);
+}
+
+int		write_string(char c, int len)
+{
+	int		i;
+
+	i = 0;
+	while (i < len)
+	{
+		write(1, &c, 1);
+		i++;
+	}
+	return (i);
 }
