@@ -381,45 +381,49 @@ puts("=======================%pointer=======================");
     ft_printf("[%p]\n", &c);
 puts("=======================%%=======================");
 
-	printf("[%-7%]\n");
-    ft_printf("[%-7%]\n");
+	printf("ret:%d\n", printf("[%-7%]\n"));
+    printf("ret:%d\n", ft_printf("[%-7%]\n"));
 
     puts("");
 
-    printf("[%20%]\n");
-    ft_printf("[%20%]\n");
+    printf("ret:%d\n", printf("[%20%]\n"));
+    printf("ret:%d\n", ft_printf("[%20%]\n"));
 
 	puts("");
 
-	printf("[%-20%]\n");
-    ft_printf("[%-20%]\n");
+	printf("ret:%d\n", printf("[%-20%]\n"));
+    printf("ret:%d\n", ft_printf("[%-20%]\n"));
 
     puts("");
 
-    printf("[%20%]\n");
-    ft_printf("[%20%]\n");
+    printf("ret:%d\n", printf("[%20%]\n"));
+    printf("ret:%d\n", ft_printf("[%20%]\n"));
 
 	puts("");
 
-	printf("[%-20%]\n");
-    ft_printf("[%-20%]\n");
+	printf("ret:%d\n", printf("[%-20%]\n"));
+    printf("ret:%d\n", ft_printf("[%-20%]\n"));
 
     puts("");
 
-    printf("[%2%]\n");
-    ft_printf("[%2%]\n");
+    printf("ret:%d\n", printf("[%2%]\n"));
+    printf("ret:%d\n", ft_printf("[%2%]\n"));
 
 puts("");
 
-    printf("[%-5%]\n");
-    ft_printf("[%-5%]\n");
+    printf("ret:%d\n", printf("[%-5%]\n"));
+    printf("ret:%d\n", ft_printf("[%-5%]\n"));
 
 puts("");
 
-    printf("[%-2%]\n");
-    ft_printf("[%-2%]\n");
+    printf("ret:%d\n", printf("[%-2%]\n"));
+    printf("ret:%d\n", ft_printf("[%-2%]\n"));
 
-    printf("[%05%]\n");
-    printf("[%05%]\n");
+    printf("ret:%d\n", printf("[%05%]\n"));
+    printf("ret:%d\n", printf("[%05%]\n"));
+
+puts("");
+    printf("ret:%d\n", printf("[%-05%]\n"));
+    printf("ret:%d\n", ft_printf("[%-05%]\n"));
 
 }
