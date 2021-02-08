@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 19:43:39 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/08 16:52:50 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/09 07:19:02 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,10 @@ int		onec_excute(char *tmp_s, t_poption *flag, int minus)
 	ast = flag->asterisk;
 	per = flag->period;
 	r_value = 0;
-	if (ast > 1 && ast > per && (!flag->zero) &&
-			!(flag->hyphen))
+	if (!(flag->hyphen))
 		r_value += write_string(' ', ast - 1);
-	if ((flag->zero && !per) && (ast >= 1) && (!flag->hyphen))
-		r_value += write_string('0', ast - 1);
-	else if ((per >= 1) && (!flag->hyphen))
-		r_value += write_string('0', per - 1);
 	write(1, tmp_s, 1);
-	if (ast > 1 && ast > per && (flag->hyphen))
+	if ((flag->hyphen))
 		r_value += write_string(' ', ast - 1);
 	r_value += 1;
 	return (r_value);

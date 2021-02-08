@@ -5,6 +5,17 @@ int		main(void)
 {
 	char *s = "sso";
 
+	puts("============");
+	printf("[%-3.5%]\n");
+	ft_printf("[%-3.5%]\n");
+	puts("============");
+	printf("[%-3.5c]\n", 'a');
+	ft_printf("[%-3.5c]\n", 'a');
+
+
+
+
+/*
 printf("[%8.5d]\n", 0);
 ft_printf("[%8.5d]\n", 0);
 puts("============");
@@ -169,4 +180,13 @@ puts("==========");
 
 	printf("%p\n", (void *)100);
 	ft_printf("%p\n", (void *)100);
+
+
+
+
+
+
+
+
+	*/
 }
