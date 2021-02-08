@@ -5,8 +5,8 @@ int		main(void)
 {
 	char *s = "sso";
 
-printf("%.3d\n", 0);
-ft_printf("%.3d\n", 0);
+printf("[%8.5d]\n", 0);
+ft_printf("[%8.5d]\n", 0);
 puts("============");
 	printf("this %i number\n", 0);
 	ft_printf("this %i number\n", 0);

@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 19:37:00 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/08 17:44:13 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/08 17:49:53 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ int		int_0_excute(t_poption *flag)
 		r_value += write_string(' ', ast - per);
 	if ((flag->zero && !per))
 		r_value += write_string('0', ast);
-	if ((per >= 1) && ast <= per)
+	if ((per >= 1))
 		r_value += write_string('0', per);
 	if (ast > per && (!flag->zero) && (flag->hyphen))
 		r_value += write_string(' ', ast - per);
