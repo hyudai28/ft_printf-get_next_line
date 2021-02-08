@@ -5,6 +5,66 @@ int		main(void)
 {
 	char *s = "sso";
 
+
+
+	printf("this %i number\n", 0);
+	ft_printf("this %i number\n", 0);
+puts("===========");
+	printf("[%.0i]\n", 0);
+	ft_printf("[%.0i]\n", 0);
+puts("===========");
+	printf("this %d number\n", 0);
+	ft_printf("this %d number\n", 0);
+puts("===========");
+	printf("[%3i]\n", 0);
+	ft_printf("[%3i]\n", 0);
+puts("===========");
+	printf("[%-3i]\n", 0);
+	ft_printf("[%-3i]\n", 0);
+puts("===========");
+	printf("[%03i]\n", 0);
+	ft_printf("[%03i]\n", 0);
+puts("===========");
+
+
+
+
+	printf("[%5.0i]\n", 0);
+	ft_printf("[%5.0i]\n", 0);
+puts("===========");
+	printf("[%5.i]\n", 0);
+	ft_printf("[%5.i]\n", 0);
+puts("===========");
+	printf("[%-5.i]\n", 0);
+	ft_printf("[%-5.i]\n", 0);
+
+
+
+puts("===========");
+	printf("[%i]\n", 0);
+	ft_printf("[%i]\n", 0);
+puts("===========");
+	printf("[%3d]\n", 0);
+	ft_printf("[%3d]\n", 0);
+puts("===========");
+	printf("[%-3d]\n", 0);
+	ft_printf("[%-3d]\n", 0);
+puts("===========");
+	printf("[%03d]\n", 0);
+	ft_printf("[%03d]\n", 0);
+
+
+
+
+puts("===========");
+	printf("[%3.0d]\n", 0);
+	ft_printf("[%3.0d]\n", 0);
+puts("===========");
+	printf("[%3.d]\n", 0);
+	ft_printf("[%3.d]\n", 0);
+
+
+puts("part1");
 	printf("%.0i\n", 0);
 	ft_printf("%.0i\n", 0);
 	puts("===============");

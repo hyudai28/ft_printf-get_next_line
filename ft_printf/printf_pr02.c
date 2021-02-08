@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 19:38:53 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/08 15:52:56 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/08 16:11:18 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ ssize_t		unsigned_pr(va_list ap, t_poption *flag)
 	if (!tmp_s)
 		return (-1);
 	len = (int)ft_strlen(tmp_s);
-	if (arg == 0 && !flag->period)
+	if (arg == 0 && !flag->period && flag->number)
 		return_value = 0;
 	else
 		return_value = int_excute(tmp_s, flag, len, 0);
