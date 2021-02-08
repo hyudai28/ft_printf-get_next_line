@@ -6,19 +6,21 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 19:42:42 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/06 18:11:24 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/08 14:39:55 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*hex_large(unsigned int num, int l, char *answer)
+char	*hex_large(unsigned long num, int l, char *answer)
 {
 	int		j;
 	char	*henkan;
 
 	j = 0;
 	henkan = "0123456789ABCDEF";
+	if (num == 0)
+		answer[--l] = henkan[0];
 	while (num > 0)
 	{
 		j = num % 16;
@@ -28,13 +30,15 @@ char	*hex_large(unsigned int num, int l, char *answer)
 	return (answer);
 }
 
-char	*hex_small(unsigned int num, int l, char *answer)
+char	*hex_small(unsigned long num, int l, char *answer)
 {
 	unsigned int	j;
 	char			*henkan;
 
 	j = 0;
 	henkan = "0123456789abcdef";
+	if (num == 0)
+		answer[--l] = henkan[0];
 	while (num > 0)
 	{
 		j = num % 16;
@@ -44,9 +48,9 @@ char	*hex_small(unsigned int num, int l, char *answer)
 	return (answer);
 }
 
-char	*hex_pointer(int num, int l, char *answer)
+char	*hex_pointer(unsigned long num, int l, char *answer)
 {
-	int		j;
+	unsigned long		j;
 	char	*henkan;
 
 	j = 0;
@@ -57,7 +61,5 @@ char	*hex_pointer(int num, int l, char *answer)
 		num = num / 16;
 		answer[--l] = henkan[j];
 	}
-	answer[0] = '0';
-	answer[1] = 'x';
 	return (answer);
 }

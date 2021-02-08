@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 19:37:00 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/07 16:04:49 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/08 01:02:06 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ ssize_t		int_pr(va_list ap, t_poption *flag)
 	if (!tmp_s)
 		return (-1);
 	len = (int)ft_strlen(tmp_s);
-	return_value = int_excute(tmp_s, flag, len, minus);
+	if (arg == 0 && !flag->period)
+		return_value = 0;
+	else
+		return_value = int_excute(tmp_s, flag, len, minus);
 	free(tmp_s);
 	return (return_value);
 }

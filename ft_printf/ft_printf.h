@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 11:17:50 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/07 15:34:13 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/08 14:14:02 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ int				string_excute(char *tmp_s, t_poption *flag);
 int				pointer_excute(char *tmp_s, t_poption *flag, int len);
 int				onec_excute(char *tmp_s, t_poption *flag, int minus);
 int				string_null_excute(char *s, t_poption *flag);
-char			*hex_pointer(int num, int l, char *answer);
-char			*hex_large(unsigned int num, int l, char *answer);
-char			*hex_small(unsigned int num, int l, char *answer);
+char			*hex_pointer(unsigned long num, int l, char *answer);
+char			*hex_large(unsigned long num, int l, char *answer);
+char			*hex_small(unsigned long num, int l, char *answer);
 
 ssize_t			string_pr(va_list ap, t_poption *flag);
 ssize_t			int_pr(va_list ap, t_poption *flag);
@@ -58,7 +58,7 @@ ssize_t			hex_pr(va_list ap, t_poption *flag);
 ssize_t			pointer_pr(va_list ap, t_poption *flag);
 int				error_handling(t_poption *flag);
 
-int				un_digit(unsigned int k);
+int				un_digit(unsigned long k);
 
 size_t			gnl_strchr(const char *s, int c);
 int				ft_isdigit(int c);
