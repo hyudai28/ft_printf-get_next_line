@@ -5,7 +5,6 @@ int		main(void)
 {
 	char *s = "sso";
 
-/*
 	printf("%.0i\n", 0);
 	ft_printf("%.0i\n", 0);
 	puts("===============");
@@ -75,7 +74,6 @@ int		main(void)
 	printf("%-5.u\n", 0);
 	ft_printf("%-5.u\n", 0);
 	puts("===============");
-*/
 	printf("[%-10.c]\n", 'a');
 	ft_printf("[%-10.c]\n", 'a');
 	printf("this %x number\n", 0);
@@ -84,8 +82,8 @@ int		main(void)
 
 
 
-	printf("%3x\n", 0);
-	ft_printf("%3x\n", 0);
+	printf("[%3x]\n", 0);
+	ft_printf("[%3x]\n", 0);
 	puts("===============");
 
 	printf("%-3x\n", 0);

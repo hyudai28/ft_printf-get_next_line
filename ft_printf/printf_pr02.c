@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 19:38:53 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/08 14:26:37 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/08 15:52:56 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,36 +35,38 @@ ssize_t		unsigned_pr(va_list ap, t_poption *flag)
 ssize_t		hex_pr(va_list ap, t_poption *flag)
 {
 	int				l;
+	int				len;
 	unsigned long	num;
-	char			*tmp_s;
 	char			*answer;
 	int				return_value;
 
 	num = va_arg(ap, unsigned long);
 	l = un_digit(num);
-	answer = malloc(l + 1);
-	answer[l] = '\0';
-	tmp_s = hex_small(num, l, answer);
-	return_value = int_excute(tmp_s, flag, l, 0);
-	free(tmp_s);
+	answer = malloc(l + 2);
+	answer[l + 1] = '\0';
+	answer = hex_small(num, l, answer);
+	len = ft_strlen(answer);
+	return_value = hex_excute(answer, flag, len, num);
+	free(answer);
 	return (return_value);
 }
 
 ssize_t		large_hex_pr(va_list ap, t_poption *flag)
 {
 	int				l;
+	int				len;
 	unsigned long	num;
-	char			*tmp_s;
 	char			*answer;
 	int				return_value;
 
 	num = va_arg(ap, unsigned long);
 	l = un_digit(num);
-	answer = malloc(l + 1);
-	answer[l] = '\0';
-	tmp_s = hex_large(num, l, answer);
-	return_value = int_excute(tmp_s, flag, l, 0);
-	free(tmp_s);
+	answer = malloc(l + 2);
+	answer[l + 1] = '\0';
+	answer = hex_large(num, l, answer);
+	len = ft_strlen(answer);
+	return_value = hex_excute(answer, flag, l, num);
+	free(answer);
 	return (return_value);
 }
 
@@ -72,7 +74,6 @@ ssize_t		pointer_pr(va_list ap, t_poption *flag)
 {
 	int				l;
 	unsigned long	num;
-	char			*tmp_s;
 	char			*answer;
 	int				return_value;
 
@@ -80,7 +81,7 @@ ssize_t		pointer_pr(va_list ap, t_poption *flag)
 	l = un_digit(num);
 	answer = malloc(l + 1);
 	answer[l] = '\0';
-	tmp_s = hex_pointer(num, l, answer);
+	answer = hex_pointer(num, l, answer);
 	if (!flag->number && !flag->asterisk && !flag->period &&
 		!flag->zero && !flag->hyphen && !num)
 	{
@@ -88,8 +89,8 @@ ssize_t		pointer_pr(va_list ap, t_poption *flag)
 		return_value = 3;
 	}
 	else
-		return_value = pointer_excute(tmp_s, flag, l);
-	free(tmp_s);
+		return_value = pointer_excute(answer, flag, l);
+	free(answer);
 	return (return_value);
 }
 
@@ -97,7 +98,7 @@ int			un_digit(unsigned long k)
 {
 	int i;
 
-	i = 1;
+	i = 0;
 	while (k > 0)
 	{
 		k /= 16;

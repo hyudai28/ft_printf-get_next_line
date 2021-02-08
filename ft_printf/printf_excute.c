@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 19:43:39 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/08 00:05:42 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/08 15:52:08 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,33 @@ int		onec_excute(char *tmp_s, t_poption *flag, int minus)
 	if (ast > 1 && ast > per && (flag->hyphen))
 		r_value += write_string(' ', ast - 1);
 	r_value += 1;
+	return (r_value);
+}
+
+int		hex_excute(char *tmp_s, t_poption *flag, int len, unsigned long num)
+{
+	int		ast;
+	int		per;
+	int		r_value;
+
+	(void)num;
+	ast = flag->asterisk;
+	per = flag->period;
+	r_value = 0;
+	if (ast >= len && ast > per && !flag->zero &&
+			!(flag->hyphen))
+		r_value += write_string(' ', (per > len) ? ast - per : ast - len);
+	else if (flag->zero && flag->number)
+		r_value += write_string(' ', (per > len) ? ast - per : ast - len);
+	if ((flag->zero && !per) && (ast >= len))
+		r_value += write_string('0', ast - len);
+	if ((per >= len))
+		r_value += write_string('0', per - len);
+	write(1, tmp_s, len);
+	if (ast >= len && ast > per && (!flag->zero) &&
+			(flag->hyphen))
+		r_value += write_string(' ', (per > len) ? ast - per : ast - len);
+	r_value += len;
 	return (r_value);
 }
 
