@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 19:37:00 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/08 17:25:15 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/08 17:31:17 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,14 +85,6 @@ ssize_t		percent_pr(t_poption *flag)
 	tmp_s[0] = '%';
 	tmp_s[1] = '\0';
 	return_value = onec_excute(tmp_s, flag, flag->hyphen);
-	/*
-	if (!flag->hyphen)
-		return_value += write_string(' ', flag->asterisk - 1);
-	write(1, tmp_s, 1);
-	if (flag->hyphen)
-		return_value += write_string(' ', flag->asterisk - 1);
-	return_value += 1;
-	*/
 	return (return_value);
 }
 
@@ -113,7 +105,7 @@ int		int_0_excute(t_poption *flag)
 	if ((flag->zero && !per))
 		r_value += write_string('0', ast);
 	if ((per >= 1) && ast >= per)
-		r_value += write_string('0', per - 1);
+		r_value += write_string('0', per);
 	if (ast > per && (!flag->zero) && (flag->hyphen))
 		r_value += write_string(' ', ast - per);
 	return (r_value);
