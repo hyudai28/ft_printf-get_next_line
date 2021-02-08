@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 19:37:00 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/08 17:31:17 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/08 17:44:13 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,10 @@ ssize_t		int_pr(va_list ap, t_poption *flag)
 	if (!tmp_s)
 		return (-1);
 	len = (int)ft_strlen(tmp_s);
+	/*
 	if (arg == 0 && !flag->period && flag->number && !flag->asterisk)
-		return_value = 0;
-	else if (arg == 0 && flag->number)
+		return_value = 0;*/
+	/*else*/ if (arg == 0 && flag->number)
 		return_value = int_0_excute(flag);
 	else
 		return_value = int_excute(tmp_s, flag, len, minus);
@@ -104,7 +105,7 @@ int		int_0_excute(t_poption *flag)
 		r_value += write_string(' ', ast - per);
 	if ((flag->zero && !per))
 		r_value += write_string('0', ast);
-	if ((per >= 1) && ast >= per)
+	if ((per >= 1) && ast <= per)
 		r_value += write_string('0', per);
 	if (ast > per && (!flag->zero) && (flag->hyphen))
 		r_value += write_string(' ', ast - per);
