@@ -123,11 +123,8 @@ int		string_excute(char *s, t_poption *flag)
 	if (flag->number)
 	{
 		len = len < flag->period ? len : flag->period;
-	if (!flag->hyphen)
-		return_value += write_string(' ', flag->asterisk - len);
-		write(1, &s[0], len);
-	if (flag->hyphen)
-		return_value += write_string(' ', flag->asterisk - len);
+		if (!flag->hyphen)
+			return_value += write_string(' ', flag->asterisk - len);
 	}
 	else
 	{
@@ -135,10 +132,10 @@ int		string_excute(char *s, t_poption *flag)
 			return_value += write_string(' ', flag->asterisk - len);
 		else if (flag->zero)
 			return_value += write_string('0', flag->asterisk - len);
+	}
 		write(1, &s[0], len);
 		if (flag->hyphen)
 			return_value += write_string(' ', flag->asterisk - len);
-	}
 	return_value += len;
 	return (return_value);
 }
