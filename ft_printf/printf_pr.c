@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 19:37:00 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/09 13:38:16 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/09 22:30:20 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ ssize_t		percent_pr(t_poption *flag)
 	return (return_value);
 }
 
-char	*make_zero()
+char		*make_zero(void)
 {
 	char	*tmp_s;
 

@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 19:42:42 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/09 16:18:43 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/09 22:29:27 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char	*hex_small(unsigned long num, int l, char *answer)
 char	*hex_pointer(unsigned long num, int l, char *answer)
 {
 	unsigned long		j;
-	char	*henkan;
+	char				*henkan;
 
 	j = 0;
 	henkan = "0123456789abcdef";

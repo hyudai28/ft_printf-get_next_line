@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 11:42:16 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/09 13:15:35 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/09 22:28:55 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int			error_handling(t_poption *flag)
 	return (0);
 }
 
-int		write_string(char c, int len)
+int			write_string(char c, int len)
 {
 	int		i;
 
@@ -68,7 +68,7 @@ int			un_digit(unsigned long k)
 	return (i);
 }
 
-char	*make_null()
+char		*make_null(void)
 {
 	char	*tmp_s;
 

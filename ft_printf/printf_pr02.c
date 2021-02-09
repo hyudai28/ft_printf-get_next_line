@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 19:38:53 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/09 21:23:01 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/09 22:27:46 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ ssize_t		unsigned_pr(va_list ap, t_poption *flag)
 			return (-1);
 	}
 	len = (int)ft_strlen(tmp_s);
-		return_value = int_excute(tmp_s, flag, len, 0);
+	return_value = int_excute(tmp_s, flag, len, 0);
 	free(tmp_s);
 	return (return_value);
 }
@@ -115,7 +115,7 @@ ssize_t		pointer_pr(va_list ap, t_poption *flag)
 	return (return_value);
 }
 
-int		point_write()
+int			point_write(void)
 {
 	write(1, "0x0", 3);
 	return (3);
