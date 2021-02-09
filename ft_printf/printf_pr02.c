@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 19:38:53 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/09 13:37:48 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/09 21:23:01 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,14 @@ ssize_t		hex_pr(va_list ap, t_poption *flag)
 
 	num = va_arg(ap, unsigned long);
 	l = un_digit(num);
-	if (!num && !flag->period && flag->number)
+	if (!num && !flag->pre && flag->number)
 		answer = make_null();
-	if (!num)
+	else if (!num)
 		answer = make_zero();
 	else
 	{
-		answer = malloc(l + 2);
-		answer[l + 1] = '\0';
+		answer = malloc(l + 1);
+		answer[l] = '\0';
 		answer = hex_small(num, l, answer);
 	}
 	len = ft_strlen(answer);
@@ -78,8 +78,8 @@ ssize_t		large_hex_pr(va_list ap, t_poption *flag)
 		answer = make_zero();
 	else
 	{
-		answer = malloc(l + 2);
-		answer[l + 1] = '\0';
+		answer = malloc(l + 1);
+		answer[l] = '\0';
 		answer = hex_large(num, l, answer);
 	}
 	len = ft_strlen(answer);

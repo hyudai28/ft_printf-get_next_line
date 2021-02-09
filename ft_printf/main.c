@@ -6,7 +6,8 @@ int		main(void)
 		int   b = 21364;
 		unsigned int c = 4294967295;
 
-
+printf("%x\n", 12345);
+ft_printf("%x\n", 12345);
 
 
 

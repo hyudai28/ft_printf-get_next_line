@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 19:43:39 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/09 08:20:33 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/09 21:13:52 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@ int		onec_excute(char *tmp_s, t_poption *flag, int minus)
 	ast = flag->asterisk;
 	per = flag->period;
 	r_value = 0;
-	if (!(flag->hyphen))
+	if (!(flag->hyphen) && !flag->zero)
 		r_value += write_string(' ', ast - 1);
+	else if (flag->zero && ast > 1)
+		r_value += write_string('0', ast - 1);
 	write(1, tmp_s, 1);
 	if ((flag->hyphen))
 		r_value += write_string(' ', ast - 1);
@@ -74,9 +76,9 @@ int		int_excute(char *tmp_s, t_poption *flag, int len, int minus)
 		r_value += write_string(' ', (per > len) ? ast - per : ast - len);
 	if (minus)
 		write(1, "-", 1);
-	if ((flag->zero && !per) && (ast >= len))
+	if ((flag->zero && !flag->pre) && (ast >= len))
 		r_value += write_string('0', ast - len);
-	if ((per >= len))
+	else if ((per >= len))
 		r_value += write_string('0', per - len);
 	write(1, tmp_s, len);
 	if (ast >= len && ast > per && (!flag->zero) &&
@@ -129,8 +131,10 @@ int		string_excute(char *s, t_poption *flag)
 	}
 	else
 	{
-		if (!flag->hyphen && flag->asterisk > len)
+		if (!flag->hyphen && flag->asterisk > len && !flag->zero)
 			return_value += write_string(' ', flag->asterisk - len);
+		else if (flag->zero)
+			return_value += write_string('0', flag->asterisk - len);
 		write(1, &s[0], len);
 		if (flag->hyphen)
 			return_value += write_string(' ', flag->asterisk - len);
