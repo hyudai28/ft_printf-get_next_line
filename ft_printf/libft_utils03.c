@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 11:42:16 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/07 15:34:15 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/09 13:15:35 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ t_poption	printf_struct_reset(t_poption flag)
 	flag.asterisk = 0;
 	flag.hyphen = 0;
 	flag.number = 0;
+	flag.pre = 0;
 	flag.ret = 0;
 	flag.chr = 0;
 	return (flag);
@@ -52,4 +53,26 @@ int		write_string(char c, int len)
 		i++;
 	}
 	return (i);
+}
+
+int			un_digit(unsigned long k)
+{
+	int i;
+
+	i = 0;
+	while (k > 0)
+	{
+		k /= 16;
+		i++;
+	}
+	return (i);
+}
+
+char	*make_null()
+{
+	char	*tmp_s;
+
+	tmp_s = malloc(1);
+	tmp_s[0] = '\0';
+	return (tmp_s);
 }

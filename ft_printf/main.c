@@ -426,4 +426,32 @@ puts("");
     printf("ret:%d\n", printf("[%-05%]\n"));
     printf("ret:%d\n", ft_printf("[%-05%]\n"));
 
+
+
+
+
+    printf("%d\n", 0);
+    ft_printf("%d\n", 0);
+
+
+    printf("%c\n", 0);
+    ft_printf("%c\n", 0);
+
+    printf("%s\n", 0);
+    ft_printf("%s\n", 0);
+
+    printf("%u\n", 0);
+    ft_printf("%u\n", 0);
+
+    printf("%x\n", 0);
+    ft_printf("%x\n", 0);
+
+    printf("%X\n", 0);
+    ft_printf("%X\n", 0);
+
+    printf("%p\n", 0);
+    ft_printf("%p\n", 0);
+
+    printf("%%\n");
+    ft_printf("%%\n");
 }

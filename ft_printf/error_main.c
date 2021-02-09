@@ -5,6 +5,64 @@ int		main(void)
 {
 	char *s = "sso";
 
+
+
+
+	printf("-->|%-16p|<-- \n", (void*)0x1900);
+	ft_printf("-->|%-16p|<-- \n", (void*)0x1900);
+
+	printf("[%-5.p]\n", 0);
+	ft_printf("[%-5.p]\n", 0);
+	ft_printf("[%-5.2p]\n", 0);
+	ft_printf("[%-5.2p]\n", 0);
+
+	printf("[%-3p]\n", 0);
+	ft_printf("[%-3p]\n", 0);
+	printf("[%p]\n", 0);
+	ft_printf("[%p]\n", 0);
+puts("=====%x========");
+	printf("-->|%-16x|<-- \n", (void*)0x1900);
+	ft_printf("-->|%-16x|<-- \n", (void*)0x1900);
+
+	printf("[%-5.x]\n", 0);
+	ft_printf("[%-5.x]\n", 0);
+	ft_printf("[%-5.2x]\n", 0);
+	ft_printf("[%-5.2x]\n", 0);
+
+	printf("[%-3x]\n", 0);
+	ft_printf("[%-3x]\n", 0);
+	printf("[%x]\n", 0);
+	ft_printf("[%x]\n", 0);
+
+	puts("=====%X========");
+	printf("-->|%-16X|<-- \n", (void*)0x1900);
+	ft_printf("-->|%-16X|<-- \n", (void*)0x1900);
+
+	printf("[%-5.X]\n", 0);
+	ft_printf("[%-5.X]\n", 0);
+	ft_printf("[%-5.2X]\n", 0);
+	ft_printf("[%-5.2X]\n", 0);
+
+	printf("[%-3X]\n", 0);
+	ft_printf("[%-3X]\n", 0);
+	printf("[%X]\n", 0);
+	ft_printf("[%X]\n", 0);
+
+	puts("=====%U========");
+	printf("-->|%-16u|<-- \n", (void*)0x1900);
+	ft_printf("-->|%-16u|<-- \n", (void*)0x1900);
+
+	printf("[%-5.u]\n", 0);
+	ft_printf("[%-5.u]\n", 0);
+	ft_printf("[%-5.2u]\n", 0);
+	ft_printf("[%-5.2u]\n", 0);
+
+	printf("[%-3u]\n", 0);
+	ft_printf("[%-3u]\n", 0);
+	printf("[%u]\n", 0);
+	ft_printf("[%u]\n", 0);
+
+
 	puts("============");
 	printf("[%-3.5%]\n");
 	ft_printf("[%-3.5%]\n");
@@ -15,7 +73,7 @@ int		main(void)
 
 
 
-/*
+
 printf("[%8.5d]\n", 0);
 ft_printf("[%8.5d]\n", 0);
 puts("============");
@@ -37,7 +95,6 @@ puts("===========");
 	printf("[%03i]\n", 0);
 	ft_printf("[%03i]\n", 0);
 puts("===========");
-
 
 
 
@@ -64,7 +121,6 @@ puts("===========");
 puts("===========");
 	printf("[%03d]\n", 0);
 	ft_printf("[%03d]\n", 0);
-
 
 
 
@@ -188,5 +244,4 @@ puts("==========");
 
 
 
-	*/
 }

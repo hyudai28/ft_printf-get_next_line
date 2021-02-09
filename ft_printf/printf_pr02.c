@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 19:38:53 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/08 16:11:18 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/09 13:37:48 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,20 @@ ssize_t		unsigned_pr(va_list ap, t_poption *flag)
 	char			*tmp_s;
 	size_t			len;
 	ssize_t			return_value;
-	unsigned long	arg;
+	unsigned long	num;
 
-	arg = (unsigned long)va_arg(ap, unsigned int);
-	tmp_s = ft_itoa(arg);
-	if (!tmp_s)
-		return (-1);
-	len = (int)ft_strlen(tmp_s);
-	if (arg == 0 && !flag->period && flag->number)
-		return_value = 0;
+	num = va_arg(ap, unsigned long);
+	if (!num && !flag->period && flag->number)
+		tmp_s = make_null();
+	else if (!num)
+		tmp_s = make_zero();
 	else
+	{
+		tmp_s = ft_itoa(num);
+		if (!tmp_s)
+			return (-1);
+	}
+	len = (int)ft_strlen(tmp_s);
 		return_value = int_excute(tmp_s, flag, len, 0);
 	free(tmp_s);
 	return (return_value);
@@ -42,9 +46,16 @@ ssize_t		hex_pr(va_list ap, t_poption *flag)
 
 	num = va_arg(ap, unsigned long);
 	l = un_digit(num);
-	answer = malloc(l + 2);
-	answer[l + 1] = '\0';
-	answer = hex_small(num, l, answer);
+	if (!num && !flag->period && flag->number)
+		answer = make_null();
+	if (!num)
+		answer = make_zero();
+	else
+	{
+		answer = malloc(l + 2);
+		answer[l + 1] = '\0';
+		answer = hex_small(num, l, answer);
+	}
 	len = ft_strlen(answer);
 	return_value = hex_excute(answer, flag, len, num);
 	free(answer);
@@ -61,11 +72,18 @@ ssize_t		large_hex_pr(va_list ap, t_poption *flag)
 
 	num = va_arg(ap, unsigned long);
 	l = un_digit(num);
-	answer = malloc(l + 2);
-	answer[l + 1] = '\0';
-	answer = hex_large(num, l, answer);
+	if (!num && !flag->pre && flag->number)
+		answer = make_null();
+	else if (!num)
+		answer = make_zero();
+	else
+	{
+		answer = malloc(l + 2);
+		answer[l + 1] = '\0';
+		answer = hex_large(num, l, answer);
+	}
 	len = ft_strlen(answer);
-	return_value = hex_excute(answer, flag, l, num);
+	return_value = hex_excute(answer, flag, len, num);
 	free(answer);
 	return (return_value);
 }
@@ -79,30 +97,26 @@ ssize_t		pointer_pr(va_list ap, t_poption *flag)
 
 	num = va_arg(ap, unsigned long);
 	l = un_digit(num);
-	answer = malloc(l + 1);
-	answer[l] = '\0';
-	answer = hex_pointer(num, l, answer);
-	if (!flag->number && !flag->asterisk && !flag->period &&
-		!flag->zero && !flag->hyphen && !num)
+	if (!num && !flag->pre && flag->number)
+		answer = make_null();
+	else if (!num)
+		answer = make_zero();
+	else
 	{
-		write(1, "0x0", 3);
-		return_value = 3;
+		answer = malloc(l + 1);
+		answer[l] = '\0';
+		answer = hex_pointer(num, l, answer);
 	}
+	if (!flag->number && !flag->period && !flag->zero && !num)
+		return_value = point_write();
 	else
 		return_value = pointer_excute(answer, flag, l);
 	free(answer);
 	return (return_value);
 }
 
-int			un_digit(unsigned long k)
+int		point_write()
 {
-	int i;
-
-	i = 0;
-	while (k > 0)
-	{
-		k /= 16;
-		i++;
-	}
-	return (i);
+	write(1, "0x0", 3);
+	return (3);
 }

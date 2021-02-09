@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 19:37:00 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/08 17:49:53 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/09 13:38:16 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,16 @@ ssize_t		int_pr(va_list ap, t_poption *flag)
 	minus = (arg < 0) ? 1 : 0;
 	if (minus)
 		arg *= -1;
-	tmp_s = ft_itoa(arg);
+	if (!arg && !flag->period && flag->number)
+		tmp_s = make_null();
+	else if (!arg)
+		tmp_s = make_zero();
+	else
+		tmp_s = ft_itoa(arg);
 	if (!tmp_s)
 		return (-1);
 	len = (int)ft_strlen(tmp_s);
-	/*
-	if (arg == 0 && !flag->period && flag->number && !flag->asterisk)
-		return_value = 0;*/
-	/*else*/ if (arg == 0 && flag->number)
-		return_value = int_0_excute(flag);
-	else
-		return_value = int_excute(tmp_s, flag, len, minus);
+	return_value = int_excute(tmp_s, flag, len, minus);
 	free(tmp_s);
 	return (return_value);
 }
@@ -89,25 +88,12 @@ ssize_t		percent_pr(t_poption *flag)
 	return (return_value);
 }
 
-
-int		int_0_excute(t_poption *flag)
+char	*make_zero()
 {
-	int		ast;
-	int		per;
-	int		r_value;
+	char	*tmp_s;
 
-	ast = flag->asterisk;
-	per = flag->period;
-	r_value = 0;
-	if (ast > per && !flag->zero && !(flag->hyphen))
-		r_value += write_string(' ', ast - per);
-	else if (flag->zero && flag->number)
-		r_value += write_string(' ', ast - per);
-	if ((flag->zero && !per))
-		r_value += write_string('0', ast);
-	if ((per >= 1))
-		r_value += write_string('0', per);
-	if (ast > per && (!flag->zero) && (flag->hyphen))
-		r_value += write_string(' ', ast - per);
-	return (r_value);
+	tmp_s = malloc(2);
+	tmp_s[0] = '0';
+	tmp_s[1] = '\0';
+	return (tmp_s);
 }
