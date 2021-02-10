@@ -3,7 +3,11 @@
 
 int		main(void)
 {
+	/*printf("%2.9p\n", 1234);
+	ft_printf("%2.9p\n", 1234);*/
 
+	printf("ret:%d\n", printf("%.0phello\n", 0));
+	printf("ret:%d\n", ft_printf("%.0phello\n", 0));
 
 	printf("[%5p]\n", NULL);
 	ft_printf("[%5p]\n", NULL);
@@ -46,7 +50,7 @@ puts("");
 	printf("[%3.5p]\n", 0);
 	ft_printf("[%3.5p]\n", 0);
 puts("");
-
+/*
 
 	printf("[%5x]\n", 0);
 	ft_printf("[%5x]\n", 0);
@@ -58,5 +62,5 @@ puts("");
 puts("");
 	printf("[%*i]\n", -14, 94827);
 	ft_printf("[%*i]\n", -14, 94827);
-
+*/
 }
