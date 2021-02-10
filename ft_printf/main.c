@@ -5,6 +5,10 @@ int		main(void)
 {
 
 
+	printf("[%5p]\n", NULL);
+	ft_printf("[%5p]\n", NULL);
+
+
 	printf("[%-05%]\n");
 	ft_printf("[%-05%]\n");
 
@@ -13,11 +17,9 @@ int		main(void)
 	printf("[%-05%]\n");
 	ft_printf("[%-05%]\n");
 puts("");
-/*
 	printf("[%-09s]\n", "hi low");
 	ft_printf("[%-09s]\n", "hi low");
 puts("");
-*/
 
 	printf("[%5x]\n", 0);
 	ft_printf("[%5x]\n", 0);
@@ -40,16 +42,14 @@ puts("");
 	printf("[%2.9x]\n", 1234);
 	ft_printf("[%2.9x]\n", 1234);
 puts("");
-/*
 
-	printf("[%.5p]\n", 0);
-	ft_printf("[%.5p]\n", 0);
+	printf("[%3.5p]\n", 0);
+	ft_printf("[%3.5p]\n", 0);
 puts("");
 
 
 	printf("[%5x]\n", 0);
 	ft_printf("[%5x]\n", 0);
-	*/
 puts("");
 
 

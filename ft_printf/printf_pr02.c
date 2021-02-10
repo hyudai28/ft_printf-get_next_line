@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 19:38:53 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/09 23:32:05 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/10 16:06:55 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,9 +107,8 @@ ssize_t		pointer_pr(va_list ap, t_poption *flag)
 		answer[l] = '\0';
 		answer = hex_pointer(num, l, answer);
 	}
-	if (!flag->number && !flag->period && !flag->zero && !num)
-		return_value = point_write();
-	else
+	if (!l && !(!flag->pre && !flag->pre && flag->number))
+		l = 1;
 		return_value = pointer_excute(answer, flag, l);
 	free(answer);
 	return (return_value);

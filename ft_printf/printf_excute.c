@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 19:43:39 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/10 15:01:56 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/10 16:13:12 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int		onec_excute(char *tmp_s, t_poption *flag, int minus)
 	ast = flag->asterisk;
 	per = flag->period;
 	r_value = 0;
-	if (!(flag->hyphen))
+	if (!(flag->hyphen) && !flag->zero)
 		r_value += write_string(' ', ast - 1);
-	else if (flag->zero && ast > 1 && !flag->hyphen && !flag->hyphen)
+	else if (flag->zero && ast > 1 && !flag->hyphen)
 		r_value += write_string('0', ast - 1);
 	write(1, tmp_s, 1);
 	if (flag->hyphen)
@@ -99,16 +99,18 @@ int		pointer_excute(char *tmp_s, t_poption *flag, int len)
 	r_value = 0;
 	if (ast >= len && ast > per && !flag->zero &&
 			!(flag->hyphen))
-		r_value += write_string(' ', (per > len) ? ast - per : ast - len - 2);
-	if ((flag->zero && !per) && (ast >= len))
+		r_value += write_string(' ', (per > len + 2) ? ast - per : ast - len - 2);
+	else if ((flag->zero && !per) && (ast >= len))
 		r_value += write_string('0', ast - len - 2);
-	if ((per >= len))
+	else if ((per >= len) && tmp_s[0] != '0')
 		r_value += write_string('0', per - len - 2);
 	write(1, "0x", 2);
 	write(1, tmp_s, len);
+	if (tmp_s[0] == '0' && flag->pre)
+		r_value += write_string('0', per - 1);
 	if (ast >= len && ast > per && (!flag->zero) &&
 			(flag->hyphen))
-		r_value = write_string(' ', (per > len) ? ast - per : ast - len - 2);
+		r_value = write_string(' ', (per > len + 2) ? ast - per : ast - len - 2);
 	r_value += 2 + len;
 	return (r_value);
 }
@@ -130,7 +132,7 @@ int		string_excute(char *s, t_poption *flag)
 	{
 		if (!flag->hyphen && flag->asterisk > len && !flag->zero)
 			return_value += write_string(' ', flag->asterisk - len);
-		else if (flag->zero)
+		else if (flag->zero && !flag->hyphen)
 			return_value += write_string('0', flag->asterisk - len);
 	}
 	write(1, &s[0], len);
