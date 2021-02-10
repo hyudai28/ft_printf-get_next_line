@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 19:43:39 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/10 16:37:31 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/10 16:43:26 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,14 +105,13 @@ int		pointer_excute(char *tmp_s, t_poption *flag, int len)
 	else if ((per >= len) && tmp_s[0] != '0')
 		r_value += write_string('0', per - len - 2);
 	write(1, "0x", 2);
-	if (tmp_s[0] != '\0')
-		write(1, tmp_s, len);
+	write(1, tmp_s, len);
 	if (tmp_s[0] == '0' && flag->pre)
 		r_value += write_string('0', per - 1);
 	if (ast >= len && ast > per && (!flag->zero) &&
 			(flag->hyphen))
 		r_value = write_string(' ', (per > len + 2) ? ast - per : ast - len - 2);
-	r_value += ((tmp_s[0]!= '\0') ? 2 + len : 2);
+	r_value += 2 + len;
 	return (r_value);
 }
 
