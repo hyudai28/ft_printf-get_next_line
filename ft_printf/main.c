@@ -4,6 +4,10 @@
 int		main(void)
 {
 
+
+	printf("[%-05%]\n");
+	ft_printf("[%-05%]\n");
+
 	printf("[%.20s]\n", "hello");
 	ft_printf("[%.20s]\n", "hello");
 	printf("[%-05%]\n");

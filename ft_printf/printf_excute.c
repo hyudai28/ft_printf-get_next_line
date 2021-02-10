@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 19:43:39 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/09 23:54:04 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/10 15:01:56 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		onec_excute(char *tmp_s, t_poption *flag, int minus)
 	r_value = 0;
 	if (!(flag->hyphen))
 		r_value += write_string(' ', ast - 1);
-	else if (flag->zero && ast > 1 && !flag->hyphen)
+	else if (flag->zero && ast > 1 && !flag->hyphen && !flag->hyphen)
 		r_value += write_string('0', ast - 1);
 	write(1, tmp_s, 1);
 	if (flag->hyphen)
