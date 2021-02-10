@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 19:38:53 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/10 16:45:21 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/10 17:12:17 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,8 @@ ssize_t		pointer_pr(va_list ap, t_poption *flag)
 	int				return_value;
 
 	num = va_arg(ap, unsigned long);
-	l = un_digit(num) + 1;
-	if (!num && !flag->period && flag->number)
+	l = un_digit(num);
+	if (!num && flag->number)
 	{
 		answer = make_null();
 		l = 0;
@@ -110,7 +110,7 @@ ssize_t		pointer_pr(va_list ap, t_poption *flag)
 		answer[l] = '\0';
 		answer = hex_pointer(num, l, answer);
 	}
-	return_value = pointer_excute(answer, flag, l);
+	return_value = pointer_excute(answer, flag, ft_strlen(answer));
 	free(answer);
 	return (return_value);
 }
