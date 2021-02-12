@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 17:46:20 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/12 18:51:15 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/12 20:07:44 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,13 @@ int		mod_management(char *string, t_poption *flag, va_list ap, int i)
 
 int		fl_check(char *string, t_poption *flag, va_list ap, int i)
 {
+/*	i++;
+	flag->hyphen = string[i] == '-' ? i++:0;
+	flag->zero = string[i] == '0' ? i++:0;
+	flag->hyphen = string[i] == '-' ? i++:0;
+	flag->zero = string[i] == '0' ? i++:0;
+	*/
+	
 	if (string[++i] == '-')
 	{
 		flag->hyphen = 1;
