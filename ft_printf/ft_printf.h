@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 11:17:50 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/09 22:25:25 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/12 18:46:54 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,15 +45,15 @@ int				string_excute(char *tmp_s, t_poption *flag);
 int				pointer_excute(char *tmp_s, t_poption *flag, int len);
 int				onec_excute(char *tmp_s, t_poption *flag, int minus);
 int				string_null_excute(char *s, t_poption *flag);
-int				hex_excute(char *s, t_poption *f, int l, unsigned long n);
+int				hex_excute(char *s, t_poption *f, int l, unsigned int n);
 
 char			*make_zero();
 char			*make_null();
 int				point_write();
 
-char			*hex_pointer(unsigned long num, int l, char *answer);
-char			*hex_large(unsigned long num, int l, char *answer);
-char			*hex_small(unsigned long num, int l, char *answer);
+char			*hex_pointer(unsigned long long num, int l, char *answer);
+char			*hex_large(unsigned int num, int l, char *answer);
+char			*hex_small(unsigned int num, int l, char *answer);
 
 ssize_t			string_pr(va_list ap, t_poption *flag);
 ssize_t			int_pr(va_list ap, t_poption *flag);
@@ -65,7 +65,8 @@ ssize_t			hex_pr(va_list ap, t_poption *flag);
 ssize_t			pointer_pr(va_list ap, t_poption *flag);
 int				error_handling(t_poption *flag);
 
-int				un_digit(unsigned long k);
+int				un_digit(unsigned int k);
+int				unll_digit(unsigned long long k);
 
 size_t			gnl_strchr(const char *s, int c);
 int				ft_isdigit(int c);

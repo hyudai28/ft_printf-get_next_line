@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 11:42:16 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/10 15:27:52 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/12 18:34:44 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int			write_string(char c, int len)
 	return (i);
 }
 
-int			un_digit(unsigned long k)
+int			un_digit(unsigned int k)
 {
 	int i;
 

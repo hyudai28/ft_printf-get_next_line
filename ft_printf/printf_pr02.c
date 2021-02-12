@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 19:38:53 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/12 17:54:57 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/12 18:45:51 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ ssize_t		unsigned_pr(va_list ap, t_poption *flag)
 	char			*tmp_s;
 	size_t			len;
 	ssize_t			return_value;
-	unsigned long	num;
+	unsigned int	num;
 
-	num = va_arg(ap, unsigned long);
+	num = va_arg(ap, unsigned int);
 	if (!num && !flag->period && flag->number)
 		tmp_s = make_null();
 	else if (!num)
@@ -45,9 +45,7 @@ ssize_t		hex_pr(va_list ap, t_poption *flag)
 	int				return_value;
 
 	num = va_arg(ap, unsigned int);
-	printf("num:%lu\n", num);
 	l = un_digit(num);
-printf("l=>%d\n", l);
 	if (!num && !flag->period && flag->number)
 		answer = make_null();
 	else if (!num)
@@ -92,13 +90,13 @@ ssize_t		large_hex_pr(va_list ap, t_poption *flag)
 
 ssize_t		pointer_pr(va_list ap, t_poption *flag)
 {
-	int				l;
-	unsigned long	num;
-	char			*answer;
-	int				return_value;
+	int					l;
+	unsigned long long	num;
+	char				*answer;
+	int					return_value;
 
-	num = va_arg(ap, unsigned long);
-	l = un_digit(num);
+	num = va_arg(ap, unsigned long long);
+	l = unll_digit(num);
 	if (!num && flag->number)
 	{
 		answer = make_null();
@@ -117,8 +115,15 @@ ssize_t		pointer_pr(va_list ap, t_poption *flag)
 	return (return_value);
 }
 
-int			point_write(void)
+int			unll_digit(unsigned long long k)
 {
-	write(1, "0x0", 3);
-	return (3);
+	int i;
+
+	i = 0;
+	while (k > 0)
+	{
+		k /= 16;
+		i++;
+	}
+	return (i);
 }

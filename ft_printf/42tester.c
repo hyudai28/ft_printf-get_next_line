@@ -8,6 +8,9 @@ int		main(void)
 	printf("%x\n", a);
 	ft_printf("%x\n", a);
 	
-	printf("%i, %d, %d, %d, %d, %s, %c, %d, %u, %x, %X, %s\n", a, a, a, a, a, "hello", 'v', a, a, a,a, "fin");
-	ft_printf("%i, %d, %d, %d, %d, %s, %c, %d, %u, %x, %X, %s\n", a, a, a, a, a, "hello", 'v', a, a, a,a, "fin");
+	printf("%p\n", a);
+	ft_printf("%p\n", a);
+	
+	printf("%i, %d, %d, %d, %d, %s, %c, %d, %u, %x, %X, %p, %s\n", a, a, a, a, a, "hello", 'v', a, a, a,a, &a, "fin");
+	ft_printf("%i, %d, %d, %d, %d, %s, %c, %d, %u, %x, %X, %p, %s\n", a, a, a, a, a, "hello", 'v', a, a, a,a, &a, "fin");
 }

@@ -43,8 +43,8 @@ puts("");
 
 
 
-	printf("[%2.9x]\n", 1234);
-	ft_printf("[%2.9x]\n", 1234);
+	printf("[%2.9p]\n", 0);
+	ft_printf("[%2.9p]\n", 0);
 puts("");
 
 	printf("[%3.5p]\n", 0);
