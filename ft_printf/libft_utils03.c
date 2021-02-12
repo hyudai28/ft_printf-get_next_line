@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 11:42:16 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/12 18:34:44 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/12 18:51:53 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ int			error_handling(t_poption *flag)
 	if ((long)flag->number > 2147483648)
 		return (-1);
 	if (flag->period < 0)
-		flag->period = 0;
+		flag->period *= -1;
 	if (flag->asterisk < 0)
-		flag->asterisk = 0;
+		flag->asterisk *= -1;
 	if (flag->number < 0)
-		flag->number = 0;
+		flag->number *= -1;
 	return (0);
 }
 
