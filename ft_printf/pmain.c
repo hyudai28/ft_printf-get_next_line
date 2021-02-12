@@ -2,6 +2,9 @@
 
 int		main(void)
 {
+	printf("[%.5p]\n", NULL);
+	ft_printf("[%.5p]\n", NULL);
+	puts("");
 
 	printf("[%5p]\n", NULL);
 	ft_printf("[%5p]\n", NULL);

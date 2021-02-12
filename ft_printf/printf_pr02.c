@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 19:38:53 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/10 17:12:17 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/12 17:54:57 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,14 @@ ssize_t		hex_pr(va_list ap, t_poption *flag)
 {
 	int				l;
 	int				len;
-	unsigned long	num;
+	unsigned int	num;
 	char			*answer;
 	int				return_value;
 
-	num = va_arg(ap, unsigned long);
+	num = va_arg(ap, unsigned int);
+	printf("num:%lu\n", num);
 	l = un_digit(num);
+printf("l=>%d\n", l);
 	if (!num && !flag->period && flag->number)
 		answer = make_null();
 	else if (!num)
@@ -66,11 +68,11 @@ ssize_t		large_hex_pr(va_list ap, t_poption *flag)
 {
 	int				l;
 	int				len;
-	unsigned long	num;
+	unsigned int	num;
 	char			*answer;
 	int				return_value;
 
-	num = va_arg(ap, unsigned long);
+	num = va_arg(ap, unsigned int);
 	l = un_digit(num);
 	if (!num && !flag->period && flag->number)
 		answer = make_null();
