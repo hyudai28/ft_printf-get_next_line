@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 17:46:20 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/12 20:07:44 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/12 22:59:06 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ int		mod_management(char *string, t_poption *flag, va_list ap, int i)
 
 	i = fl_check(string, flag, ap, i);
 	i = fl_check_num(string, flag, ap, i);
-
 	if (error_handling(flag) == -1)
 		return (-1);
 	return_value = mod_check(string, flag, ap, i);
@@ -59,13 +58,16 @@ int		mod_management(char *string, t_poption *flag, va_list ap, int i)
 
 int		fl_check(char *string, t_poption *flag, va_list ap, int i)
 {
-/*	i++;
-	flag->hyphen = string[i] == '-' ? i++:0;
-	flag->zero = string[i] == '0' ? i++:0;
-	flag->hyphen = string[i] == '-' ? i++:0;
-	flag->zero = string[i] == '0' ? i++:0;
-	*/
-	
+	i++;
+	if (flag->hyphen = string[i] == '-' ? 1 : flag->hyphen)
+		i++;
+	if (flag->zero = string[i] == '0' ? 1 : flag->zero)
+		i++;
+	if (flag->hyphen = string[i] == '-' ? 1: flag->hyphen)
+		i++;
+	if (flag->zero = string[i] == '0' ? 1 : flag->zero)
+		i++;
+	/*
 	if (string[++i] == '-')
 	{
 		flag->hyphen = 1;
@@ -75,7 +77,7 @@ int		fl_check(char *string, t_poption *flag, va_list ap, int i)
 	{
 		flag->zero = 1;
 		i++;
-	}
+	}*/
 	if (ft_isdigit(string[i]))
 	{
 		while (ft_isdigit(string[i]))

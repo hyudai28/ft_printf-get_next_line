@@ -4,6 +4,11 @@
 int		main(void)
 {
 	char *s = "sso";
+
+
+
+	printf("%0-i\n", 8);
+	ft_printf("%0-i\n", 8);
 puts("=======get crazy====");
 
 	printf("or: %d\n", printf("[%05.%]\n"));

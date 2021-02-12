@@ -3,8 +3,11 @@
 
 int		main(void)
 {
+
+	printf("%0-i\n", 8);
+	ft_printf("%0-i\n", 8);
 	/*printf("%2.9p\n", 1234);
-	ft_printf("%2.9p\n", 1234);*/
+	ft_printf("%2.9p\n", 1234);
 
 	printf("ret:%d\n", printf("%.0phello\n", 0));
 	printf("ret:%d\n", ft_printf("%.0phello\n", 0));
