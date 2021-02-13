@@ -4,7 +4,14 @@
 int		main(void)
 {
 
-
+	printf("%0.d\n", 0);
+	ft_printf("%0.d\n", 0);
+	printf("%0.4d\n", 0);
+	ft_printf("%0.4d\n", 0);
+	printf("[%00.4d]\n", 0);
+	ft_printf("[%00.4d]\n", 0);
+	printf("[%0*.*d]\n", 0, 1, 0);
+	ft_printf("[%0*.*d]\n", 0, 1, 0);
 
 	printf("[%0*.*d]\n", 3, -5, 7);
 	ft_printf("[%0*.*d]\n", 3, -5, 7);

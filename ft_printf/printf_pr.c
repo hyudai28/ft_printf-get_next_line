@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 19:37:00 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/13 13:12:25 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/13 16:39:59 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ ssize_t		int_pr(va_list ap, t_poption *flag)
 	minus = (arg < 0) ? 1 : 0;
 	if (minus)
 		arg *= -1;
-	if (!arg && flag->number)
+	if (!arg && flag->number && !flag->period)
 		tmp_s = make_null();
 	else if (!arg)
 		tmp_s = make_zero();
