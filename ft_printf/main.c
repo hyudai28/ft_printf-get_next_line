@@ -3,6 +3,13 @@
 
 int		main(void)
 {
+
+
+
+	printf("[%0*.*d]\n", 3, -5, 7);
+	ft_printf("[%0*.*d]\n", 3, -5, 7);
+
+	/*
 	printf("[%.*d]\n", -2, 0);
 	ft_printf("[%.*d]\n", -2, 0);
     puts("=====hide 0======\n");
@@ -76,7 +83,7 @@ puts("");
 	printf("[%3.5p]\n", 0);
 	ft_printf("[%3.5p]\n", 0);
 puts("");
-/*
+
 
 	printf("[%5x]\n", 0);
 	ft_printf("[%5x]\n", 0);
