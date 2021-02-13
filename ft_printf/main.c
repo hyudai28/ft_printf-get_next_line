@@ -3,6 +3,8 @@
 
 int		main(void)
 {
+	printf("[%.*d]\n", -2, 0);
+	ft_printf("[%.*d]\n", -2, 0);
     puts("=====hide 0======\n");
     printf("[%.0d]\n", 0);
     ft_printf("[%.0d]\n", 0);
