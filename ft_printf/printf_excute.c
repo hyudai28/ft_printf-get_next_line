@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 19:43:39 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/13 15:25:03 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/13 20:29:35 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,9 @@ int		int_excute(char *tmp_s, t_poption *flag, int len, int minus)
 		r_value += write_string(' ', (per > len) ? ast - per : ast - len);
 	if (minus)
 		write(1, "-", 1);
-	if (flag->zero && (ast >= len))
+	if (flag->zero && (ast >= len) && tmp_s[0] != '\0')
 		r_value += write_string('0', ast - len);
-	else if ((per >= len))
+	else if ((per >= len) && tmp_s[0] != '\0')
 		r_value += write_string('0', per - len);
 	write(1, tmp_s, len);
 	if (ast >= len && ast > per && (!flag->zero) &&
