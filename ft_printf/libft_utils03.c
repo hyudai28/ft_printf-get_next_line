@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 11:42:16 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/13 16:07:15 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/13 22:28:29 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,6 @@ t_poption	printf_struct_reset(t_poption flag)
 
 int			error_handling(t_poption *flag)
 {
-	/*
-	if ((long)flag->period > 2147483648)
-		return (-1);
-	if ((long)flag->asterisk > 2147483648)
-		return (-1);
-	if ((long)flag->number > 2147483648)
-		return (-1);
-		*/
 	if (flag->asterisk < 0)
 	{
 		flag->asterisk *= -1;

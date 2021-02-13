@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 19:42:42 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/12 18:47:20 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/13 22:38:15 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*hex_large(unsigned int num, int l, char *answer)
 {
-	int		j;
-	const char			henkan[17] = "0123456789ABCDEF";
+	int			j;
+	const char	henkan[17] = "0123456789ABCDEF";
 
 	j = 0;
 	while (num > 0)
@@ -30,7 +30,7 @@ char	*hex_large(unsigned int num, int l, char *answer)
 char	*hex_small(unsigned int num, int l, char *answer)
 {
 	unsigned int	j;
-	const char			henkan[17] = "0123456789abcdef";
+	const char		henkan[17] = "0123456789abcdef";
 
 	j = 0;
 	while (num > 0)

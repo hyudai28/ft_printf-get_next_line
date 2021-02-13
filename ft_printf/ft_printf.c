@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 17:46:20 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/13 16:18:43 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/13 22:27:56 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,22 +47,8 @@ int		mod_management(char *string, t_poption *flag, va_list ap, int i)
 
 	i = fl_check(string, flag, ap, i);
 	i = fl_check_num(string, flag, ap, i);
-/*
-	printf("zero:%d\n", flag->zero);
-	printf("period:%d\n", flag->period);
-	printf("asterisk:%d\n", flag->asterisk);
-	printf("hyphen:%d\n", flag->hyphen);
-	printf("number:%d\n", flag->number);
-	printf("pre:%d\n", flag->pre);*/
 	if (error_handling(flag) == -1)
 		return (-1);
-		/*
-	printf("zero:%d\n", flag->zero);
-	printf("period:%d\n", flag->period);
-	printf("asterisk:%d\n", flag->asterisk);
-	printf("hyphen:%d\n", flag->hyphen);
-	printf("number:%d\n", flag->number);
-	printf("pre:%d\n", flag->pre);*/
 	return_value = mod_check(string, flag, ap, i);
 	if (return_value == -1)
 		return (-1);
@@ -81,27 +67,6 @@ int		fl_check(char *string, t_poption *flag, va_list ap, int i)
 			flag->zero = 1;
 		i++;
 	}
-	/*
-	if (flag->hyphen = string[i] == '-' ? 1 : flag->hyphen)
-		i++;
-	if (flag->zero = string[i] == '0' ? 1 : flag->zero)
-		i++;
-	if (flag->hyphen = string[i] == '-' ? 1: flag->hyphen)
-		i++;
-	if (flag->zero = string[i] == '0' ? 1 : flag->zero)
-		i++;
-		*/
-	/*
-	if (string[++i] == '-')
-	{
-		flag->hyphen = 1;
-		i++;
-	}
-	if (string[i] == '0')
-	{
-		flag->zero = 1;
-		i++;
-	}*/
 	if (ft_isdigit(string[i]))
 	{
 		while (ft_isdigit(string[i]))
@@ -126,13 +91,11 @@ int		fl_check_num(char *string, t_poption *flag, va_list ap, int i)
 		flag->number = 1;
 		if (string[i] == '-')
 			i++;
-		// if (ft_isdigit(string[i]))
 		while (ft_isdigit(string[++i]))
 		{
 			flag->pre = 1;
 			flag->period *= 10;
 			flag->period += string[i] - '0';
-			//i++;
 		}
 		if (string[i] == '*')
 		{
