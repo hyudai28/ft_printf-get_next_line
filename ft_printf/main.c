@@ -3,9 +3,30 @@
 
 int		main(void)
 {
-
-	printf("%0-i\n", 8);
-	ft_printf("%0-i\n", 8);
+    puts("=====hide 0======\n");
+    printf("[%.0d]\n", 0);
+    ft_printf("[%.0d]\n", 0);
+    printf("[%0.0d]\n", 0);
+    ft_printf("[%0.0d]\n", 0);
+    printf("[%-.0d]\n", 0);
+    ft_printf("[%-.0d]\n", 0);
+    printf("[%-0.0d]\n", 0);
+    ft_printf("[%-0.0d]\n", 0);
+    printf("[%-1.0d]\n", 0);
+    ft_printf("[%-1.0d]\n", 0);
+    printf("[%1.0d]\n", 0);
+    ft_printf("[%1.0d]\n", 0);
+    printf("[%.d]\n", 0);
+    ft_printf("[%.d]\n", 0);
+	puts("====show 0=======");
+    printf("[%d]\n", 0);
+    ft_printf("[%d]\n", 0);
+    printf("[%0d]\n", 0);
+    ft_printf("[%0d]\n", 0);
+    printf("[%1d]\n", 0);
+    ft_printf("[%1d]\n", 0);
+    printf("[%2d]\n", 0);
+    ft_printf("[%2d]\n", 0);
 	/*printf("%2.9p\n", 1234);
 	ft_printf("%2.9p\n", 1234);
 

@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 11:42:16 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/12 20:08:45 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/13 11:33:13 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int			error_handling(t_poption *flag)
 		flag->hyphen = 1;
 	}
 	if (flag->period < 0)
-		flag->period *= -1;
+		flag->period = 0;
 	if (flag->number < 0)
 		flag->number *= -1;
 	if (flag->hyphen && flag->zero)
