@@ -3,6 +3,16 @@
 
 int		main(void)
 {
+	printf("%0*i\n", 2, 8);
+	ft_printf("%0*i\n", 2, 8);
+
+	printf("[%02.0d]\n", 8);
+	ft_printf("[%02.0d]\n", 8);
+
+
+	printf("[%01.2d]\n", 0);
+	ft_printf("[%01.2d]\n", 0);
+
 	printf("[%0*.*d]\n", 1, 0, 0);
 	ft_printf("[%0*.*d]\n", 1, 0, 0);
 	printf("[%01.0d]\n", 0);
