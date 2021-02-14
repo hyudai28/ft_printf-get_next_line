@@ -1,6 +1,6 @@
 NAME = libftprintf.a
 CC = gcc
-CFLAGS = -Wall -Wextra 
+CFLAGS = -Wall -Wextra -Werror 
 
 SOURCE_FILE = ft_printf.c \
 			printf_excute.c \

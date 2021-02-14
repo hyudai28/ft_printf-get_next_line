@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 17:46:20 by hyudai            #+#    #+#             */
-/*   Updated: 2021/02/13 22:27:56 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/02/14 17:00:13 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int		ft_printf(const char *string, ...)
 		i++;
 		return_value += flag.chr + flag.ret;
 	}
+	va_end(ap);
 	return (return_value);
 }
 
