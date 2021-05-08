@@ -6,13 +6,13 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 13:46:03 by hyudai            #+#    #+#             */
-/*   Updated: 2020/12/27 00:00:19 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/01/10 14:00:09 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	gnl_strchr(const char *s, int c)
+size_t		gnl_strchr(const char *s, int c)
 {
 	int		i;
 	int		size;
@@ -31,7 +31,7 @@ size_t	gnl_strchr(const char *s, int c)
 
 size_t		ft_strlen(const char *s)
 {
-	size_t i;
+	size_t		i;
 
 	i = 0;
 	while (s[i] != '\0')
@@ -39,12 +39,12 @@ size_t		ft_strlen(const char *s)
 	return (i);
 }
 
-char	*ft_strnjoin(char *s1, char *s2, size_t chr)
+char		*ft_strnjoin(char *s1, char *s2, size_t chr)
 {
 	size_t		size;
 	size_t		i;
 	size_t		j;
-	char	*dest;
+	char		*dest;
 
 	size = ft_strlen(s1) + ft_strlen(s2) + 1;
 	if ((dest = (char *)malloc(sizeof(char) * size)) == NULL)
@@ -65,7 +65,7 @@ char	*ft_strnjoin(char *s1, char *s2, size_t chr)
 	return (dest);
 }
 
-char	*gnl_strdup(char *s1, int flag)
+char		*gnl_strdup(char *s1)
 {
 	int		i;
 	char	*dest;
@@ -74,24 +74,14 @@ char	*gnl_strdup(char *s1, int flag)
 	if (dest == NULL)
 		return (NULL);
 	i = 0;
-	// if (flag)
-	// {
-	// 	while (s1[i] != '\0' && s1[i] != '\n')
-	// 		i++;
-	// 	dest[i] = '\0';
-	// 	// free(s1)
-	// 	return (dest);
-	// }
 	while (s1[i] != '\0')
 	{
 		dest[i] = s1[i];
 		i++;
 	}
 	dest[i] = '\0';
-	// free(s1);
 	return (dest);
 }
-
 
 void		free_all(char **line, char **st_arr, int fd)
 {

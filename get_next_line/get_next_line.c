@@ -6,13 +6,13 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/20 00:55:54 by hyudai            #+#    #+#             */
-/*   Updated: 2020/12/26 23:59:15 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/01/10 15:14:26 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int find_newline(int fd, char **line, char **st_arr, char *buf)
+int			find_newline(int fd, char **line, char **st_arr, char *buf)
 {
 	int		chr;
 	int		flag;
@@ -20,15 +20,16 @@ int find_newline(int fd, char **line, char **st_arr, char *buf)
 	char	*line_tmp;
 
 	flag = 0;
+	str_tmp = NULL;
 	chr = gnl_strchr(buf, '\n');
 	if (!(line_tmp = ft_strnjoin(*line, buf, chr)))
 		return (-1);
 	free(*line);
 	*line = line_tmp;
+	line_tmp = NULL;
 	if (buf[chr] == '\n')
 	{
-		str_tmp = NULL;
-		if (!(str_tmp = gnl_strdup(buf + chr + 1, 0)))
+		if (!(str_tmp = gnl_strdup(buf + chr + 1)))
 			return (-1);
 		flag = 1;
 	}
@@ -37,7 +38,7 @@ int find_newline(int fd, char **line, char **st_arr, char *buf)
 	return (flag);
 }
 
-int read_fd(int fd, char **line, char **st_arr)
+int			read_fd(int fd, char **line, char **st_arr)
 {
 	ssize_t r_result;
 	char	*buf;
@@ -50,9 +51,10 @@ int read_fd(int fd, char **line, char **st_arr)
 	while (r_result > 0 && find_new == 0)
 	{
 		r_result = read(fd, buf, BUFFER_SIZE);
-		buf[r_result] = '\0';
+		if (r_result > 0)
+			buf[r_result] = '\0';
 		if (r_result == 0)
-			break;
+			break ;
 		buf[ft_strlen(buf)] = '\0';
 		find_new = find_newline(fd, line, st_arr, buf);
 		if (r_result == -1)
@@ -65,16 +67,17 @@ int read_fd(int fd, char **line, char **st_arr)
 	return (find_new && r_result);
 }
 
-int		get_next_line(int fd, char **line)
+int			get_next_line(int fd, char **line)
 {
 	static char *st_arr[256];
-	int		check;
+	int			check;
 
-	if (fd < 0 ||256 < fd)
+	if (0 > fd || fd > 256 || BUFFER_SIZE <= 0)
 		return (-1);
 	if (!(*line = malloc(1)))
 		return (-1);
 	*line[0] = '\0';
+	check = 0;
 	if (st_arr[fd])
 		check = find_newline(fd, line, st_arr, st_arr[fd]);
 	if (check != 1)
